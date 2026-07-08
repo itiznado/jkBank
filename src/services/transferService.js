@@ -63,6 +63,7 @@ export async function transferMoney({ emisorUid, receptorEmail, monto, descripci
     transaction.update(emisorRef, { saldo: saldoEmisor - monto })
     transaction.update(receptorRef, { saldo: saldoReceptor + monto })
     transaction.set(movimientoRef, {
+      categoria: 'transferencia',
       emisorUid,
       receptorUid: receptor.id,
       emisorNombre: emisorSnap.data().nombre,
