@@ -65,6 +65,10 @@ export async function transferMoney({ emisorUid, receptorEmail, monto, descripci
     transaction.set(movimientoRef, {
       emisorUid,
       receptorUid: receptor.id,
+      emisorNombre: emisorSnap.data().nombre,
+      emisorEmail: emisorSnap.data().email,
+      receptorNombre: receptorSnap.data().nombre,
+      receptorEmail: receptorSnap.data().email,
       monto,
       descripcion: descripcion || '',
       fecha: serverTimestamp(),

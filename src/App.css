@@ -244,3 +244,77 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+.history {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--code-bg);
+}
+
+.history h2 {
+  margin: 0 0 16px;
+}
+
+.history__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.history__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.history__contraparte {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.history__fecha {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.history__descripcion {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.history__monto {
+  margin: 0;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.history__monto--envio {
+  color: #b91c1c;
+}
+
+.history__monto--recepcion {
+  color: #15803d;
+}
+
+.history__status,
+.history__error {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.history__error {
+  color: #b91c1c;
+}

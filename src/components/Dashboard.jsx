@@ -3,6 +3,7 @@ import { logoutUser, getAuthErrorMessage } from '../services/authService'
 import { useUserProfile } from '../hooks/useUserProfile'
 import { formatSaldo } from '../utils/formatSaldo'
 import TransferForm from './TransferForm'
+import MovementHistory from './MovementHistory'
 
 function Dashboard({ user }) {
   const { profile, loading, error: profileError } = useUserProfile(user.uid)
@@ -70,6 +71,8 @@ function Dashboard({ user }) {
       {profile && (
         <TransferForm user={user} saldoDisponible={profile.saldo} />
       )}
+
+      <MovementHistory uid={user.uid} />
 
       {logoutError && <p className="dashboard__error">{logoutError}</p>}
     </div>
