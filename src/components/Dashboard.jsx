@@ -3,7 +3,9 @@ import { logoutUser, getAuthErrorMessage } from '../services/authService'
 import { useUserProfile } from '../hooks/useUserProfile'
 import { formatSaldo } from '../utils/formatSaldo'
 import TransferForm from './TransferForm'
+import CashForm from './CashForm'
 import MovementHistory from './MovementHistory'
+import ThemeToggle from './ThemeToggle'
 
 function Dashboard({ user }) {
   const { profile, loading, error: profileError } = useUserProfile(user.uid)
@@ -13,7 +15,6 @@ function Dashboard({ user }) {
   async function handleLogoutClick() {
     setIsLoggingOut(true)
     setLogoutError('')
-
     try {
       await logoutUser()
     } catch (logoutErr) {
@@ -23,22 +24,11 @@ function Dashboard({ user }) {
   }
 
   function renderBalance() {
-    if (loading) {
-      return <p className="dashboard__status">Cargando saldo...</p>
-    }
-
-    if (profileError) {
-      return <p className="dashboard__error">{profileError}</p>
-    }
-
+    if (loading) return <p className="dashboard__status">Cargando saldo...</p>
+    if (profileError) return <p className="dashboard__error">{profileError}</p>
     if (!profile) {
-      return (
-        <p className="dashboard__status">
-          No encontramos tu perfil bancario. Contacta soporte.
-        </p>
-      )
+      return <p className="dashboard__status">No encontramos tu perfil bancario. Contacta soporte.</p>
     }
-
     return (
       <>
         <p className="dashboard__greeting">Hola, {profile.nombre}</p>
@@ -52,14 +42,17 @@ function Dashboard({ user }) {
     <div className="dashboard">
       <header className="dashboard__header">
         <h1>jkBank</h1>
-        <button
-          type="button"
-          className="dashboard__logout"
-          onClick={handleLogoutClick}
-          disabled={isLoggingOut}
-        >
-          {isLoggingOut ? 'Saliendo...' : 'Cerrar sesión'}
-        </button>
+        <div className="dashboard__headerActions">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="dashboard__logout"
+            onClick={handleLogoutClick}
+            disabled={isLoggingOut}
+          >
+            {isLoggingOut ? 'Saliendo...' : 'Cerrar sesión'}
+          </button>
+        </div>
       </header>
 
       <section className="dashboard__welcome">
@@ -68,9 +61,8 @@ function Dashboard({ user }) {
         {renderBalance()}
       </section>
 
-      {profile && (
-        <TransferForm user={user} saldoDisponible={profile.saldo} />
-      )}
+      {profile && <TransferForm user={user} saldoDisponible={profile.saldo} />}
+      {profile && <CashForm user={user} saldoDisponible={profile.saldo} />}
 
       <MovementHistory uid={user.uid} />
 

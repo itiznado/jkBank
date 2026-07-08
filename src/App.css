@@ -318,3 +318,126 @@
 .history__error {
   color: #b91c1c;
 }
+
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-h);
+  background: var(--bg);
+  font: inherit;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.cash {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--code-bg);
+}
+
+.cash h2 {
+  margin: 0 0 16px;
+}
+
+.cash__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cash__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.cash__field input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--text-h);
+  background: var(--bg);
+}
+
+.cash__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.cash__deposit,
+.cash__withdraw {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cash__deposit {
+  background: #15803d;
+}
+
+.cash__withdraw {
+  background: #b91c1c;
+}
+
+.cash__deposit:disabled,
+.cash__withdraw:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cash__error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #b91c1c;
+  background: rgba(248, 113, 113, 0.15);
+  font-size: 0.9rem;
+}
+
+.cash__success {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #15803d;
+  background: rgba(74, 222, 128, 0.15);
+  font-size: 0.9rem;
+}
+
+.history__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.history__filterField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  flex: 1;
+  min-width: 160px;
+}
+
+.history__filterField select,
+.history__filterField input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--text-h);
+  background: var(--bg);
+}

@@ -1,24 +1,27 @@
 import './App.css'
 import AuthForm from './components/AuthForm'
 import Dashboard from './components/Dashboard'
-import { useAuth } from './hooks/useAuth'
+import ThemeToggle from './components/ThemeToggle'
+import { useAuthContext } from './context/AuthContext'
 
 function App() {
-  const { user, loading } = useAuth()
+  const { user, loading } = useAuthContext()
 
-  if (loading) {
-    return (
-      <div className="app-state">
-        <p>Cargando sesión...</p>
-      </div>
-    )
-  }
+  return (
+    <>
+      <ThemeToggle />
 
-  if (!user) {
-    return <AuthForm />
-  }
-
-  return <Dashboard user={user} />
+      {loading ? (
+        <div className="app-state">
+          <p>Cargando sesión...</p>
+        </div>
+      ) : user ? (
+        <Dashboard user={user} />
+      ) : (
+        <AuthForm />
+      )}
+    </>
+  )
 }
 
 export default App
