@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { logoutUser, getAuthErrorMessage } from '../services/authService'
 import { useUserProfile } from '../hooks/useUserProfile'
 import { formatSaldo } from '../utils/formatSaldo'
+import TransferForm from './TransferForm'
 
 function Dashboard({ user }) {
   const { profile, loading, error: profileError } = useUserProfile(user.uid)
@@ -65,6 +66,10 @@ function Dashboard({ user }) {
         <p className="dashboard__email">{user.email}</p>
         {renderBalance()}
       </section>
+
+      {profile && (
+        <TransferForm user={user} saldoDisponible={profile.saldo} />
+      )}
 
       {logoutError && <p className="dashboard__error">{logoutError}</p>}
     </div>

@@ -172,3 +172,75 @@
   font-weight: 600;
   color: var(--text-h);
 }
+
+.transfer {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--code-bg);
+}
+
+.transfer h2 {
+  margin: 0 0 16px;
+}
+
+.transfer__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.transfer__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.transfer__field input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--text-h);
+  background: var(--bg);
+}
+
+.transfer__field input:focus {
+  outline: 2px solid var(--accent-border);
+  outline-offset: 1px;
+}
+
+.transfer__error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #b91c1c;
+  background: rgba(248, 113, 113, 0.15);
+  font-size: 0.9rem;
+}
+
+.transfer__success {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #15803d;
+  background: rgba(74, 222, 128, 0.15);
+  font-size: 0.9rem;
+}
+
+.transfer__submit {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.transfer__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
