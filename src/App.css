@@ -1,0 +1,174 @@
+.app-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 24px;
+}
+
+.auth,
+.dashboard {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  text-align: left;
+}
+
+.auth__header,
+.dashboard__header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth__header h1,
+.dashboard__header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.auth__header p {
+  color: var(--text);
+}
+
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--code-bg);
+}
+
+.auth__form h2 {
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.auth__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.auth__field input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--text-h);
+  background: var(--bg);
+}
+
+.auth__field input:focus {
+  outline: 2px solid var(--accent-border);
+  outline-offset: 1px;
+}
+
+.auth__error,
+.dashboard__error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #b91c1c;
+  background: rgba(248, 113, 113, 0.15);
+  font-size: 0.9rem;
+}
+
+.auth__submit,
+.auth__toggle,
+.dashboard__logout {
+  font: inherit;
+  cursor: pointer;
+}
+
+.auth__submit {
+  margin-top: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--accent);
+}
+
+.auth__submit:disabled,
+.auth__toggle:disabled,
+.dashboard__logout:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth__toggle {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 8px;
+  border: none;
+  background: none;
+  color: var(--accent);
+  text-align: center;
+}
+
+.dashboard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dashboard__header h1 {
+  text-align: left;
+}
+
+.dashboard__logout {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-h);
+  background: var(--bg);
+}
+
+.dashboard__welcome {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--code-bg);
+}
+
+.dashboard__welcome h2 {
+  margin-top: 0;
+}
+
+.dashboard__email {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.dashboard__status {
+  margin: 0;
+  color: var(--text);
+}
+
+.dashboard__greeting {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+  color: var(--text-h);
+}
+
+.dashboard__label {
+  margin: 0 0 4px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.dashboard__balance {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-h);
+}

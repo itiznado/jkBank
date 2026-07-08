@@ -1,0 +1,1 @@
+Las claves las escondo con un .env local ignorado por Git y un .env.example para quien quiera clonarla sepa que variables configurar.
