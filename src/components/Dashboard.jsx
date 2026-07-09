@@ -5,7 +5,6 @@ import { formatSaldo } from '../utils/formatSaldo'
 import TransferForm from './TransferForm'
 import CashForm from './CashForm'
 import MovementHistory from './MovementHistory'
-import ThemeToggle from './ThemeToggle'
 
 function Dashboard({ user }) {
   const { profile, loading, error: profileError } = useUserProfile(user.uid)
@@ -43,7 +42,6 @@ function Dashboard({ user }) {
       <header className="dashboard__header">
         <h1>jkBank</h1>
         <div className="dashboard__headerActions">
-          <ThemeToggle />
           <button
             type="button"
             className="dashboard__logout"
