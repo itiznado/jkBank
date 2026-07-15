@@ -11,7 +11,12 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'text-summary', 'html'],
-      include: ['src/utils/**', 'src/components/**'],
+      include: [
+        'src/utils/*.js',
+        'src/components/TransferForm.jsx',
+        'src/components/AuthForm.jsx',
+        'src/components/MovementHistory.jsx',
+      ],
     },
   },
 })
