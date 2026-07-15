@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { transferMoney, getTransferErrorMessage } from '../services/transferService'
-
-const MONTO_MINIMO = 1
+import { validateTransferForm } from '../utils/validaciones'
 
 function TransferForm({ user, saldoDisponible }) {
   const [receptorEmail, setReceptorEmail] = useState('')
@@ -28,30 +27,12 @@ function TransferForm({ user, saldoDisponible }) {
   }
 
   function validateForm() {
-    const trimmedEmail = receptorEmail.trim()
-    const montoNumerico = Number(monto)
-
-    if (!trimmedEmail) {
-      return 'Ingresa el correo del destinatario.'
-    }
-
-    if (trimmedEmail.toLowerCase() === user.email.toLowerCase()) {
-      return 'No puedes transferirte dinero a ti mismo.'
-    }
-
-    if (!monto || Number.isNaN(montoNumerico)) {
-      return 'Ingresa un monto válido.'
-    }
-
-    if (montoNumerico < MONTO_MINIMO) {
-      return 'El monto debe ser mayor a 0.'
-    }
-
-    if (saldoDisponible !== null && montoNumerico > saldoDisponible) {
-      return 'No tienes saldo suficiente para esta transferencia.'
-    }
-
-    return ''
+  return validateTransferForm({
+    receptorEmail,
+    monto,
+    emisorEmail: user.email,
+    saldoDisponible,
+  })
   }
 
   async function handleSubmit(event) {
@@ -89,7 +70,7 @@ function TransferForm({ user, saldoDisponible }) {
   return (
     <section className="transfer">
       <h2>Transferir dinero</h2>
-      <form className="transfer__form" onSubmit={handleSubmit}>
+      <form className="transfer__form" onSubmit={handleSubmit} noValidate>
         <label className="transfer__field">
           Correo del destinatario
           <input
